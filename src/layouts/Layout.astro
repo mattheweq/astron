@@ -1,0 +1,25 @@
+---
+interface Props {
+	title: string;
+	bgcol?: string;
+}
+
+const { title, bgcol } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel='shortcut icon' href='https://easycss.github.io/favicon/favicon.png' type='image/x-icon' />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body class={bgcol}>
+    <div>
+      <slot />
+    </div>
+	</body>
+</html>
