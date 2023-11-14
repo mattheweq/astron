@@ -1,11 +1,13 @@
 ## Astron - An Astro Starter Project
 
 
-[VISIT LIVE SITE](https://)
+<!-- [VISIT LIVE SITE](https://)
 
-![PREVIEW](./preview.png)
+![PREVIEW](./preview.png) -->
 
-
+```
+astro workflow configured - use github pages
+```
 
 
 
