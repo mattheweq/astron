@@ -28,6 +28,8 @@ astro workflow configured - use github pages
 ```
 npm create astro@latest projectName
 npx astro add tailwind
+npm i -D @tailwindcss/typography
+npx astro add mdx
 
 "dev": "astro dev --port 5000",
 

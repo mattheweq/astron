@@ -1,4 +1,7 @@
 ---
+import Nav from "../components/Nav.astro"
+import { ViewTransitions } from "astro:transitions";
+
 interface Props {
 	title: string;
   description?: string;
@@ -15,12 +18,14 @@ const { title, description="Astron...", image="/imgs/logo.png", bgcol } = Astro.
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
-		<link rel='shortcut icon' href='https://easycss.github.io/favicon/favicon.png' type='image/x-icon' />
+		<link rel='shortcut icon' href='https://easycss.github.io/favicon/favicon.png' type='image/x-icon' /> 
 		<meta name="generator" content={Astro.generator} />
 		<meta property="og:image" content={image} />
 		<title>{title}</title>
+    <ViewTransitions />
 	</head>
 	<body class=`${bgcol}`>
+    <Nav />
     <div>
       <slot />
     </div>
