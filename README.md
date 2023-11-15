@@ -1,8 +1,10 @@
 ## Astron - An Astro Starter Project
 
 
+![PREVIEW](/public/imgs/logo.png)
+
 [VISIT LIVE SITE](https://mattheweq.com/astron/)
-![PREVIEW](./preview.png)
+
 
 
 
