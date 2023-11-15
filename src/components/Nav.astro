@@ -1,15 +1,23 @@
 ---
+interface Props {
+	txtcol?: string;
+}
 
+const { txtcol } = Astro.props;
 ---
 
 <nav class="container mx-auto">
-<div class="text-center sm:flex justify-between px-0 my-3 mx-[0px] text-white">
+<div class=`text-center sm:flex justify-between px-0 my-3 mx-[0px] ${txtcol}`>
   <a href="/">
-    <h1>Astron</h1>
+    <h1 class="text-4xl">Astron</h1>
   </a>
-  <ul>
+  <ul class="flex gap-2 justify-center">
     <li>
       <a href="/blog">Blog</a>
+    </li>
+    <li>|</li>
+    <li>
+      <a href="/charts">Charts</a>
     </li>
   </ul>
 </div>

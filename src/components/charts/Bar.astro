@@ -1,0 +1,347 @@
+
+    <script
+      type="text/javascript"
+      src="https://cdn.bokeh.org/bokeh/release/bokeh-2.4.1.min.js"
+    ></script>
+
+    <script is:inline type="text/javascript">
+      Bokeh.set_log_level("info")
+    </script>
+
+    <div
+      class="container mx-auto"
+      id="eac50ad2-4973-4be1-b87a-5c1d84395661"
+      data-root-id="1003"
+    ></div>
+
+    <script is:inline type="application/json" id="1126">
+      {
+        "2071f42b-2d10-452b-b056-f373ee6deb3d": {
+          "defs": [],
+          "roots": {
+            "references": [
+              { "attributes": {}, "id": "1012", "type": "LinearScale" },
+              {
+                "attributes": {
+                  "below": [{ "id": "1014" }],
+                  "center": [
+                    { "id": "1016" },
+                    { "id": "1020" },
+                    { "id": "1032" },
+                    { "id": "1033" }
+                  ],
+                  "left": [{ "id": "1017" }],
+                  "renderers": [{ "id": "1026" }],
+                  "sizing_mode": "stretch_both",
+                  "title": { "id": "1004" },
+                  "toolbar": { "id": "1021" },
+                  "toolbar_location": null,
+                  "x_range": { "id": "1006" },
+                  "x_scale": { "id": "1010" },
+                  "y_range": { "id": "1008" },
+                  "y_scale": { "id": "1012" }
+                },
+                "id": "1003",
+                "subtype": "Figure",
+                "type": "Plot"
+              },
+              {
+                "attributes": {
+                  "coordinates": null,
+                  "data_source": { "id": "1002" },
+                  "glyph": { "id": "1023" },
+                  "group": null,
+                  "hover_glyph": null,
+                  "muted_glyph": { "id": "1025" },
+                  "nonselection_glyph": { "id": "1024" },
+                  "view": { "id": "1027" }
+                },
+                "id": "1026",
+                "type": "GlyphRenderer"
+              },
+              { "attributes": { "end": 400 }, "id": "1008", "type": "Range1d" },
+              { "attributes": {}, "id": "1015", "type": "CategoricalTicker" },
+              {
+                "attributes": { "format": "\u00a3%s" },
+                "id": "1028",
+                "type": "PrintfTickFormatter"
+              },
+              { "attributes": {}, "id": "1039", "type": "AllLabels" },
+              { "attributes": {}, "id": "1040", "type": "UnionRenderers" },
+              {
+                "attributes": {
+                  "coordinates": null,
+                  "fill_alpha": 0.9,
+                  "fill_color": null,
+                  "group": null,
+                  "line_color": "red",
+                  "line_width": 3,
+                  "top": 270
+                },
+                "id": "1032",
+                "type": "BoxAnnotation"
+              },
+              {
+                "attributes": {},
+                "id": "1038",
+                "type": "CategoricalTickFormatter"
+              },
+              {
+                "attributes": {
+                  "fill_alpha": { "value": 0.2 },
+                  "fill_color": { "field": "color" },
+                  "hatch_alpha": { "value": 0.2 },
+                  "hatch_color": { "field": "color" },
+                  "line_alpha": { "value": 0.2 },
+                  "line_color": { "field": "color" },
+                  "top": { "field": "spend" },
+                  "width": { "value": 0.95 },
+                  "x": { "field": "month" }
+                },
+                "id": "1025",
+                "type": "VBar"
+              },
+              { "attributes": {}, "id": "1010", "type": "CategoricalScale" },
+              {
+                "attributes": { "source": { "id": "1002" } },
+                "id": "1027",
+                "type": "CDSView"
+              },
+              {
+                "attributes": {
+                  "factors": [
+                    "dec/jan",
+                    "jan/feb",
+                    "feb/march",
+                    "march/april",
+                    "april/may",
+                    "may/june",
+                    "june/july",
+                    "july/aug",
+                    "aug/sept",
+                    "sept/oct",
+                    "oct/nov",
+                    "nov/dec"
+                  ]
+                },
+                "id": "1006",
+                "type": "FactorRange"
+              },
+              {
+                "attributes": {
+                  "coordinates": null,
+                  "formatter": { "id": "1028" },
+                  "group": null,
+                  "major_label_policy": { "id": "1036" },
+                  "major_label_text_font_size": "20px",
+                  "ticker": { "id": "1030" }
+                },
+                "id": "1017",
+                "type": "LinearAxis"
+              },
+              { "attributes": {}, "id": "1021", "type": "Toolbar" },
+              { "attributes": {}, "id": "1041", "type": "Selection" },
+              { "attributes": {}, "id": "1036", "type": "AllLabels" },
+              {
+                "attributes": {
+                  "data": {
+                    "color": [
+                      "red",
+                      "yellow",
+                      "pink",
+                      "green",
+                      "orange",
+                      "purple",
+                      "blue",
+                      "silver",
+                      "gold",
+                      "black",
+                      "brown",
+                      "cyan"
+                    ],
+                    "month": [
+                      "dec/jan",
+                      "jan/feb",
+                      "feb/march",
+                      "march/april",
+                      "april/may",
+                      "may/june",
+                      "june/july",
+                      "july/aug",
+                      "aug/sept",
+                      "sept/oct",
+                      "oct/nov",
+                      "nov/dec"
+                    ],
+                    "spend": [
+                      "246.26",
+                      "269.81",
+                      "229.37",
+                      "224.09",
+                      "244.82",
+                      "247.74",
+                      "278.91",
+                      "285.00",
+                      "380.54",
+                      "376.25",
+                      "254.69",
+                      "201.71"
+                    ]
+                  },
+                  "selected": { "id": "1041" },
+                  "selection_policy": { "id": "1040" }
+                },
+                "id": "1002",
+                "type": "ColumnDataSource"
+              },
+              {
+                "attributes": {
+                  "coordinates": null,
+                  "formatter": { "id": "1038" },
+                  "group": null,
+                  "major_label_policy": { "id": "1039" },
+                  "major_label_text_font_size": "20px",
+                  "ticker": { "id": "1015" }
+                },
+                "id": "1014",
+                "type": "CategoricalAxis"
+              },
+              {
+                "attributes": {
+                  "ticks": [
+                    0, 25, 50, 75, 100, 125, 150, 175, 200, 225, 250, 275, 300,
+                    325, 350, 375, 400
+                  ]
+                },
+                "id": "1030",
+                "type": "FixedTicker"
+              },
+              {
+                "attributes": {
+                  "coordinates": null,
+                  "group": null,
+                  "text": "Annual Shop"
+                },
+                "id": "1004",
+                "type": "Title"
+              },
+              {
+                "attributes": {
+                  "fill_alpha": { "value": 0.5 },
+                  "fill_color": { "field": "color" },
+                  "hatch_color": { "field": "color" },
+                  "line_color": { "field": "color" },
+                  "top": { "field": "spend" },
+                  "width": { "value": 0.95 },
+                  "x": { "field": "month" }
+                },
+                "id": "1023",
+                "type": "VBar"
+              },
+              {
+                "attributes": {
+                  "coordinates": null,
+                  "group": null,
+                  "source": { "id": "1002" },
+                  "text": { "field": "spend" },
+                  "text_color": { "value": "green" },
+                  "x": { "field": "month" },
+                  "y": { "field": "spend" },
+                  "y_offset": { "value": 5 }
+                },
+                "id": "1033",
+                "type": "LabelSet"
+              },
+              {
+                "attributes": {
+                  "fill_alpha": { "value": 0.1 },
+                  "fill_color": { "field": "color" },
+                  "hatch_alpha": { "value": 0.1 },
+                  "hatch_color": { "field": "color" },
+                  "line_alpha": { "value": 0.1 },
+                  "line_color": { "field": "color" },
+                  "top": { "field": "spend" },
+                  "width": { "value": 0.95 },
+                  "x": { "field": "month" }
+                },
+                "id": "1024",
+                "type": "VBar"
+              },
+              {
+                "attributes": {
+                  "axis": { "id": "1017" },
+                  "coordinates": null,
+                  "dimension": 1,
+                  "group": null,
+                  "ticker": null
+                },
+                "id": "1020",
+                "type": "Grid"
+              },
+              {
+                "attributes": {
+                  "axis": { "id": "1014" },
+                  "coordinates": null,
+                  "grid_line_color": "#f7f7f7",
+                  "group": null,
+                  "ticker": null
+                },
+                "id": "1016",
+                "type": "Grid"
+              }
+            ],
+            "root_ids": ["1003"]
+          },
+          "title": "Bokeh Application",
+          "version": "2.4.1"
+        }
+      }
+    </script>
+
+    
+    <script is:inline type="text/javascript">
+      ;(function () {
+        const fn = function () {
+          Bokeh.safely(function () {
+            ;(function (root) {
+              function embed_document(root) {
+                const docs_json = document.getElementById("1126").textContent
+                const render_items = [
+                  {
+                    docid: "2071f42b-2d10-452b-b056-f373ee6deb3d",
+                    root_ids: ["1003"],
+                    roots: { 1003: "eac50ad2-4973-4be1-b87a-5c1d84395661" }
+                  }
+                ]
+                root.Bokeh.embed.embed_items(docs_json, render_items)
+              }
+              if (root.Bokeh !== undefined) {
+                embed_document(root)
+              } else {
+                let attempts = 0
+                const timer = setInterval(
+                  function (root) {
+                    if (root.Bokeh !== undefined) {
+                      clearInterval(timer)
+                      embed_document(root)
+                    } else {
+                      attempts++
+                      if (attempts > 100) {
+                        clearInterval(timer)
+                        console.log(
+                          "Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing"
+                        )
+                      }
+                    }
+                  },
+                  10,
+                  root
+                )
+              }
+            })(window)
+          })
+        }
+        if (document.readyState != "loading") fn()
+        else document.addEventListener("DOMContentLoaded", fn)
+      })()
+    </script>

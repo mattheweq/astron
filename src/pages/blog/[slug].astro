@@ -27,20 +27,55 @@ const {post} = Astro.props
 const {Content} = await post.render()
 ---
 
-<Layout title="Blog | {post.data.title}" bgcol="bg-blak">
-	<main class="container mx-auto text-slate-100">
+<Layout title="Blog | {post.data.title}" bgcol="bg-blak" txtcol="text-white">
+	<div class="container mx-auto text-slate-100">
+    
     <h2 class="text-4xl font-bold mb-2">{post.data.title}</h2>
+    
     <Image 
-    src={post.data.image} 
-    width={1024} 
-    height={1024 / 1.5} 
-    alt={post.data.title}
-    class="rounded shadow-xl my-4 aspect-thumbnail object-cover" 
-   />
+      src={post.data.image} 
+      width={1024} 
+      height={1024 / 1.5} 
+      alt={post.data.title}
+      class="rounded shadow-xl my-4 aspect-thumbnail object-cover" 
+    />
 
-  <div class="mt-8 prose prose-lg prose-h2:text-red-100 prose-h2:my-0 dark:prose-invert overflow-visible relative mb-20 text-slate-100">
+  <div class="slideRight mt-8 prose prose-lg prose-h2:text-red-100 prose-h2:my-0 dark:prose-invert overflow-visible relative mb-20 text-slate-100">
     <Content /> 
   </div>
   
-  </main>
+  </div><!-- \container -->
 </Layout>
+
+
+<style>
+
+h2{
+  animation: .25s ease-out 0s 1 slideLeft;
+}
+.slideRight{
+  animation: .25s ease-out 0s 1 slideRight;
+}
+
+@keyframes slideLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    transform: scale(1);
+    transform: translateX(0);
+  }
+}
+@keyframes slideRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  100% {
+    transform: scale(1);
+    transform: translateX(0);
+  }
+}
+
+</style>
