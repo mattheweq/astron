@@ -1,7 +1,7 @@
 ## Astron - An Astro Starter Project
 
 
-<!-- [VISIT LIVE SITE](https://http://<username>.github.io/<repo-name>) -->
+[VISIT LIVE SITE](https://mattheweq.com/astron/)
 ![PREVIEW](./preview.png)
 
 
