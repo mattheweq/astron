@@ -1,23 +1,33 @@
 ---
 import Layout from '../layouts/Layout.astro'
 
-
-
 ---
 
 <Layout title="Astron" bgcol="bg-blak" txtcol='text-white'>
-	<main class="container mx-auto px-4">
-  
-    <!-- <section class="px-0 my-3 grid gap-1 sm:grid-cols-2 lg:grid-cols-lemon"> -->
-    <section class="px-0 my-8 flex justify-center">
 
-    <h2 class="text-[40vw] md:-mt-24 text-white" id="counter"></h2>
+    <!-- <section class="px-0 my-3 grid gap-1 sm:grid-cols-2 lg:grid-cols-lemon"> -->
+    <section class="container mx-auto px-4">
+      <div class="px-0 my-8 flex justify-center">
+
+        <h2 class="text-[40vw] md:-mt-24 text-white" id="counter"></h2>
+    
+      </div>
     </section>
-	</main>
+
+
 </Layout>
 
 
 <script>
+interface JSONItem{
+  trackName: string;
+}
+const res = await fetch("https://matthewviamusic.com/api/tracks")
+const json: JSONItem[] = await res.json()
+
+const result: string[] = json.map((x:JSONItem) => x.trackName)
+
+const totalTracks = result.length
 
 function incrementCounter(
   selector: string,
@@ -37,6 +47,6 @@ function incrementCounter(
   }
 }
 
-incrementCounter("counter", 0, 85, 2000)
+incrementCounter("counter", 0, totalTracks, 1000, "T")
 
 </script>

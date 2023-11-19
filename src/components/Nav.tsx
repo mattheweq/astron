@@ -1,5 +1,5 @@
 import {motion} from 'framer-motion'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useMediaQuery } from '../utils/useMediaQuery';
 import NavItems from './NavItems'
 
@@ -10,30 +10,45 @@ interface Props {
 export default function Nav(props: Props) {
   const {txtcol} = props;
   const [toggled, setToggled] = useState(false)
+  const [isChartsPage, setisChartsPage] = useState(false)
   const matches = useMediaQuery("(min-width: 1280px)")
-  
-  return (
+
+  useEffect(() => {
+    const { pathname } = window.location
+    const onChartsPage = pathname == '/astron/charts'
+    onChartsPage && setisChartsPage(true)
+  }, [])
+
+return (    
+<nav>
+
+    <div className={`${!matches ? 'text-white' : txtcol}`}>
+    {matches && <div>
+        <NavItems toggled={toggled} itemClasses="relative mt-2 flex gap-2 justify-center" />
+      </div>
+    }    
+    </div>
+
+    {/* BURGER ICON */}
+    <div className={`fixed right-2 top-0 text-center flex justify-end px-0 my-3 mx-[0px] ${!matches ? 'text-white' : txtcol}`}>
     
-<nav className="container mx-auto px-4">
-    <div className={`fixed right-2 top-0 text-center flex justify-end px-0 my-3 mx-[0px] ${txtcol}`}>
-    {matches ? (
-      <div>
-        <NavItems toggled={toggled} itemClasses="flex gap-2 justify-center" />
-      </div>
-    ) : (
-      <div className="relative z-10 h-fit space-y-1.5 my-3 cursor-pointer" onClick={() => setToggled((prevToggle:boolean) => !prevToggle)}>
+    {!matches && (
+      <a href="#" onClick={() => setToggled((prevToggle:boolean) => !prevToggle)}>
+      <div className="slideRight relative z-10 h-fit space-y-1.5 my-0 cursor-pointer">
         <motion.span 
-          animate={{ rotateZ: toggled ? 45 : 0, y: toggled ? 8 : 0 }} className="block h-0.5 w-8 bg-white">
+          animate={{ rotateZ: toggled ? 45 : 0, y: toggled ? 8 : 0 }} className={`block h-0.5 w-8 ${!isChartsPage ? 'bg-white' : 'bg-black'}`}>
         </motion.span>
         <motion.span 
-          animate={{ visibility: toggled ? 'hidden' : 'visible'}} className="block h-0.5 w-6 bg-white">
+          animate={{ visibility: toggled ? 'hidden' : 'visible'}} className={`block h-0.5 w-8 ${!isChartsPage ? 'bg-white' : 'bg-black'}`}>
         </motion.span>
         <motion.span 
-          animate={{ rotateZ: toggled ? -50 : 0, y: toggled ? -8 : 0, width: toggled ? 32 : 8 }} className="block h-0.5 w-4 bg-white">
+          animate={{ rotateZ: toggled ? -50 : 0, y: toggled ? -8 : 0, width: toggled ? 32 : 8 }} className={`block h-0.5 w-8 ${!isChartsPage ? 'bg-white' : 'bg-black'}`}>
         </motion.span>
       </div>
+      </a>
     )}
     
+    {/* BURGER MENU */}
     {toggled && !matches && (
       <motion.div 
         animate={{ opacity: 1, x: 0 }}
@@ -44,6 +59,7 @@ export default function Nav(props: Props) {
       </motion.div>
     )}
     </div>
+
 </nav>
 )
 }

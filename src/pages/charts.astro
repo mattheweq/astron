@@ -1,54 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro'
-// import Bar from "../components/charts/Bar.astro"
+import Bar from "../components/charts/Bar.astro"
 
 ---
-<Layout title="Charts" bgcol="bg-[#F8E9DD]" txtcol='text-black'>
-
-
+<Layout title="Charts" bgcol="bg-[#F8E9DD]" txtcol="text-black">
 
 <div class="container mx-auto">
     <canvas id="chart"></canvas>
 </div>
 
-
-
-
-
-
-
-
-
-
-<!-- <Bar/> -->
-
-
+<Bar/>
 
 </Layout>
-
-
-<script>
-  const ctx = document.getElementById('chart');
-
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ['RED', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-      datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
-        borderWidth: 1,
-        borderColor: '#F7f7f7',
-        backgroundColor: ['#FF4E2B','#76B5BC', '#FF4E2B','#FF4E2B','#FF4E2B','#FF4E2B'],
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
-    }
-  });
-</script>
 

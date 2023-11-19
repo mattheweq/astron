@@ -1,15 +1,18 @@
 ---
+import Logo from "../components/Logo.tsx"
 import Nav from "../components/Nav.tsx"
+import "../css/global.css"
 
 interface Props {
 	title: string;
   description?: string;
   image?: string;
-	bgcol: string;
-	txtcol: string;
+	bgcol?: string;
+	txtcol?: string;
 }
 
 const { title, description="Astron...", image="/imgs/logo.png", bgcol, txtcol } = Astro.props;
+
 ---
 
 <!doctype html>
@@ -25,13 +28,19 @@ const { title, description="Astron...", image="/imgs/logo.png", bgcol, txtcol } 
 		<title>{title}</title>
 	</head>
 	<body class=`${bgcol}`>
-    <a href="/astron">
-      <h1 class="text-4xl text-white py-2 ml-2">Astron</h1>
-    </a>
-    <Nav client:load txtcol={txtcol} />
+    
+    <div class="container mx-auto px-0 sm:pr-2">
+      <div class="flex justify-between">
+        <Logo client:load />
+    
+        <Nav client:load txtcol={txtcol} />
+      </div>
+    </div>
+  
     <main>
       <slot />
     </main>
+    
 	</body>
 </html>
 
