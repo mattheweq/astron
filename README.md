@@ -21,7 +21,8 @@ npm create astro@latest projectName
 npx astro add tailwind
 npm i -D @tailwindcss/typography
 npx astro add mdx
-
+npx astro add react
+npm i framer-motion
 
 "dev": "astro dev --port 5000",
 

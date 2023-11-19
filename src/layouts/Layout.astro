@@ -1,6 +1,5 @@
 ---
-import Nav from "../components/Nav.astro"
-// import { ViewTransitions } from "astro:transitions";
+import Nav from "../components/Nav.tsx"
 
 interface Props {
 	title: string;
@@ -24,10 +23,12 @@ const { title, description="Astron...", image="/imgs/logo.png", bgcol, txtcol } 
 		<meta name="generator" content={Astro.generator} />
 		<meta property="og:image" content={image} />
 		<title>{title}</title>
-    <!-- <ViewTransitions /> -->
 	</head>
 	<body class=`${bgcol}`>
-    <Nav txtcol={txtcol} />
+    <a href="/astron">
+      <h1 class="text-4xl text-white py-2 ml-2">Astron</h1>
+    </a>
+    <Nav client:load txtcol={txtcol} />
     <main>
       <slot />
     </main>
