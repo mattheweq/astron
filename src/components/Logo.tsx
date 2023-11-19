@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-export default function GetPathLink() {
+export default function Logo() {
   const [isHomePage, setisHomePage] = useState(false)
   const [homeLinkHref, setHomeLinkHref] = useState("/astron")
   const [blogOrLogo, setblogOrLogo] = useState(true)
@@ -16,9 +16,9 @@ export default function GetPathLink() {
 
   }, [])
 
-  // const logo = "../../public/logo.png"
+  const logo = "../../public/logo.png"
   // use below when deployed
-  const logo = "/logo.png"
+  // const logo = "/logo.png"
   return (
     
 <>
