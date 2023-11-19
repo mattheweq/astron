@@ -16,7 +16,7 @@ export default function Logo() {
 
   }, [])
 
-  const logo = "../../astron/public/logo.png"
+  const logo = "../../astron/logo.png"
   // use below when deployed
   // const logo = "/logo.png"
   return (
