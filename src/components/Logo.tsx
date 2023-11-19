@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-const logoPath = "../../public/imgs/logo.png";
+import { useEffect, useState } from 'react'
 
 export default function GetPathLink() {
   const [isHomePage, setisHomePage] = useState(false)
@@ -17,6 +16,9 @@ export default function GetPathLink() {
 
   }, [])
 
+  // const logo = "../../public/logo.png"
+  // use below when deployed
+  const logo = "/logo.png"
   return (
     
 <>
@@ -27,12 +29,12 @@ export default function GetPathLink() {
       blogOrLogo ? (
         <h1 className="text-xl text-white m-2 slideLeft">All Posts</h1>
       ) : (
-        <img src={logoPath} alt="Logo" />
+        <img className="h-[38px]" src={logo} alt="Logo" />
       )
       }
     </a>
   ) : (
-    <img src={logoPath} alt="Logo" />
+    <img className="h-[38px]" src={logo} alt="Logo" />
   )}
 </>
  

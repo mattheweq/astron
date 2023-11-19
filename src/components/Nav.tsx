@@ -15,7 +15,7 @@ export default function Nav(props: Props) {
 
   useEffect(() => {
     const { pathname } = window.location
-    const onChartsPage = pathname == '/astron/charts'
+    const onChartsPage = pathname.startsWith('/astron/charts')
     onChartsPage && setisChartsPage(true)
   }, [])
 
