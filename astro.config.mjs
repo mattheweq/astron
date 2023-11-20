@@ -8,5 +8,6 @@ import react from "@astrojs/react";
 export default defineConfig({
   integrations: [tailwind(), mdx(), react()],
   site: 'https://mattheweq.com',
-  base: "/astron/"
+  base: "/astron/",
+  trailingSlash: 'ignore',
 });
