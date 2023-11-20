@@ -25,9 +25,10 @@ type Props = {
 
 const {post} = Astro.props
 const {Content} = await post.render()
+
 ---
 
-<Layout title="Blog | {post.data.title}" bgcol="bg-blak" txtcol="text-white">
+<Layout title={`BLOG | ${post.data.title}`} bgcol="bg-blak" txtcol="text-white">
 	<div class="container mx-auto px-2">
   
   <div class="max-w-[1000px] mx-auto flex flex-col justify-center">
@@ -43,7 +44,7 @@ const {Content} = await post.render()
     />
 
     <!-- MAIN POST CONTENT -->
-    <div class="mt-0 prose prose-lg dark:prose-invert overflow-visible mb-20 text-slate-100 prose-p:my-0 prose-p:mb-4 prose-h1:m-0 prose-h1:text-white prose-h2:text-white">
+    <div class="mt-0 prose prose-lg dark:prose-invert overflow-visible mb-20 text-slate-100 prose-p:my-0 prose-p:mb-4 prose-h1:m-0 prose-h1:text-white prose-h2:m-0 prose-h2:text-white">
       <Content /> 
     </div>
   
