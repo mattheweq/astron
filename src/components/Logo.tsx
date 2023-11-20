@@ -2,16 +2,16 @@ import { useEffect, useState } from 'react'
 
 export default function Logo() {
   const [isHomePage, setisHomePage] = useState(false)
-  const [homeLinkHref, setHomeLinkHref] = useState("/astron")
+  const [homeLinkHref, setHomeLinkHref] = useState("/astron/")
   const [blogOrLogo, setblogOrLogo] = useState(true)
 
   useEffect(() => {
     const { pathname } = window.location
-    const isBlogPage = pathname.startsWith('/astron/blog/')
+    const isBlogPage = pathname.startsWith('/astron/blog')
     const isHomePage = pathname == '/astron/'
-    const newHomeLinkHref = isBlogPage ? '/astron/blog' : '/astron/'
+    const newHomeLinkHref = isBlogPage ? '/astron/blog/' : '/astron/'
     setHomeLinkHref(newHomeLinkHref)
-    !isBlogPage && setblogOrLogo(false)
+    isBlogPage && setblogOrLogo(false)
     isHomePage && setisHomePage(true)
 
   }, [])

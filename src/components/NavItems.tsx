@@ -14,8 +14,8 @@ function NavItems(props: Props) {
   useEffect(() => {
     const { pathname } = window.location
     const onHomePage = pathname == '/astron/'
-    const onBlogPage = pathname == '/astron/blog'
-    const onChartsPage = pathname == '/astron/charts'
+    const onBlogPage = pathname == '/astron/blog/'
+    const onChartsPage = pathname == '/astron/charts/'
     onHomePage && setisHomePage(true)
     onBlogPage && setisBlogPage(true)
     onChartsPage && setisChartsPage(true)
@@ -32,13 +32,13 @@ function NavItems(props: Props) {
         <li>|</li>
       )}
       <li>
-        {isBlogPage ? (<span className="text-slate-500">Blog</span>) : (<a href="/astron/blog">Blog</a>)}
+        {isBlogPage ? (<span className="text-slate-500">Blog</span>) : (<a href="/astron/blog/">Blog</a>)}
       </li>
       {!toggled && (
         <li>|</li>
       )}
       <li>
-        {isChartsPage ? (<span className="text-slate-500">Charts</span>) : ( <a href="/astron/charts">Charts</a>)}
+        {isChartsPage ? (<span className="text-slate-500">Charts</span>) : ( <a href="/astron/charts/">Charts</a>)}
       </li>
     </ul>
   )
