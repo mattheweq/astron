@@ -6,19 +6,24 @@ interface Props {
 }
 
 function NavItems(props: Props) {
-  const [isHomePage, setisHomePage] = useState(false)
-  const [isBlogPage, setisBlogPage] = useState(false)
-  const [isChartsPage, setisChartsPage] = useState(false)
   const {itemClasses, toggled} = props
-
+  const [isHomePage, setIsHomePage] = useState(false)
+  const [isBlogPage, setIsBlogPage] = useState(false)
+  const [isChartsPage, setIsChartsPage] = useState(false)
   useEffect(() => {
-    const { pathname } = window.location
-    const onHomePage = pathname == '/astron/'
-    const onBlogPage = pathname == '/astron/blog/'
-    const onChartsPage = pathname == '/astron/charts/'
-    onHomePage && setisHomePage(true)
-    onBlogPage && setisBlogPage(true)
-    onChartsPage && setisChartsPage(true)
+    const {pathname} = window.location
+    if (pathname == "/astron/"){
+      setIsHomePage(true)
+    }
+    else if (pathname.startsWith("/astron/blog/")){
+      setIsBlogPage(true)
+    } 
+    else if (pathname.startsWith("/astron/charts/")){
+      setIsChartsPage(true)
+    }
+    else{
+      null
+    }
   }, [])
 
   return (
@@ -40,6 +45,7 @@ function NavItems(props: Props) {
       <li>
         {isChartsPage ? (<span className="text-slate-500">Charts</span>) : ( <a href="/astron/charts/">Charts</a>)}
       </li>
+
     </ul>
   )
 }
