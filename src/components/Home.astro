@@ -7,9 +7,38 @@ import Layout from '../layouts/Layout.astro'
 
     <!-- <section class="px-0 my-3 grid gap-1 sm:grid-cols-2 lg:grid-cols-lemon"> -->
     <section class="container mx-auto px-4">
-      <div class="px-0 my-8 flex 2xl:items-center 2xl:h-screen justify-center">
+      <div class="px-0 md:mt-72 sm:my-8 flex 2xl:items-center justify-center">
 
-        <h2 class="text-[34vw] text-white" id="counter"></h2>
+        <div class="sm:my-8 flex flex-col md:grid grid-cols-3 gap-6">
+          
+          <div class="md:w-[240px] flex flex-col items-center">
+            <h2 class="text-8xl text-white" id="totalTracks"></h2>
+            <p class="slideLeft caption delay fadeIn bg-yello text-xl text-blak mt-6 md:mt-4 p-2">Total Tracks</p>
+          </div>
+          
+          <div class="flex flex-col items-center">
+            <h2 class="text-8xl text-white" id="totalAlbums"></h2>
+            <p class="slideRight caption delay fadeIn bg-yello text-xl text-blak mt-6 md:mt-4 p-2">Total Albums</p>
+          </div>
+
+          <div class="flex flex-col items-center md:-mt-[20px]">
+            <div class="flex gap-0 mt-1.5 sm:mt-0">
+              <div class="w-[100px] flex flex-col items-center">
+                <p class="slideRight caption delay fadeIn text-sm text-white">Hours</p>
+                <h2 class="text-8xl text-white" id="totalHours"></h2>
+              </div>
+              <div>
+                <p class="caption delay fadeIn text-gray-500 text-7xl mt-7 mx-4">:</p>
+              </div>
+              <div class="w-[100px] flex flex-col items-center">
+                <p class="slideLeft caption delay fadeIn text-sm text-white">Mins</p>
+                <h2 class="text-8xl text-white" id="totalMinutes"></h2>
+              </div>
+            </div>
+            <p class="slideLeft caption delay fadeIn bg-yello text-xl text-blak mt-6 md:mt-4 p-2">Total Time</p>
+          </div>
+
+        </div>
     
       </div>
     </section>
@@ -21,13 +50,42 @@ import Layout from '../layouts/Layout.astro'
 <script>
 interface JSONItem{
   trackName: string;
+  albumName: string;
+  trackDuration: number;
 }
 const res = await fetch("https://matthewviamusic.com/api/tracks")
 const json: JSONItem[] = await res.json()
 
-const result: string[] = json.map((x:JSONItem) => x.trackName)
+const tracks: string[] = json.map((x:JSONItem) => x.trackName)
+const albums: string[] = json.map((x:JSONItem) => x.albumName)
+const time: number[] = json.map((x:JSONItem) => x.trackDuration)
 
-const totalTracks = result.length
+// TRACKS
+const totalTracks = tracks.length
+
+// ALBUMS
+interface TotalAlbumsObject {
+  [key: string]: number;
+}
+
+const totalAlbumsObject: TotalAlbumsObject = albums.reduce(
+  (obj: TotalAlbumsObject, value) => {
+    obj[value] = (obj[value] || 0) + 1;
+    return obj;
+  },
+  {}
+);
+
+const totalAlbumsInDiscography = Object.keys(totalAlbumsObject).length;
+
+
+// TIME
+let totalMins: number = time.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
+
+const hours: number = Math.floor(totalMins / 60)
+const remainingMinutes: number = totalMins % 60
+
+// const formattedTime: string = `${hours.toString()}Hours ${remainingMinutes.toFixed(0)}Mins`
 
 function incrementCounter(
   selector: string,
@@ -35,18 +93,41 @@ function incrementCounter(
   target: number,
   duration: number,
   letter: string = ""
-){
-  let counter = document.getElementById(selector)
-  let stepTime = Math.abs(Math.floor(duration / target))
-  if(current < target && counter){
-    current++
-    counter.innerText = current.toString() + letter
+) {
+  let element = document.getElementById(selector)
+
+  if (current < target && element) {
+    current++;
+    element.innerText = current.toString() + letter;
     setTimeout(() => {
       incrementCounter(selector, current, target, duration, letter)
-    }, stepTime)
+    }, Math.abs(Math.floor(duration / target)))
   }
 }
 
-incrementCounter("counter", 0, totalTracks, 1000, "T")
+const totalTracksTarget = totalTracks
+const totalAlbumsTarget = totalAlbumsInDiscography
+const totalHours = hours
+const totalMinutes = remainingMinutes
+
+const captions = document.querySelectorAll('.caption');
+
+// Loop through the selected elements and remove the class
+    captions.forEach((element: Element) => {
+      if (element instanceof HTMLElement) {
+        setTimeout(() => {
+          element.classList.remove('delay');
+      }, 100);
+      }
+    });
+
+
+incrementCounter("totalTracks", 0, totalTracksTarget, 1)
+incrementCounter("totalAlbums", 0, totalAlbumsTarget, 2300)
+// incrementCounter("totalHours", 0, totalHours, 1000, "H")
+incrementCounter("totalHours", 0, totalHours, 1200)
+// incrementCounter("totalMinutes", 0, totalMinutes, 1000, "M")
+incrementCounter("totalMinutes", 0, totalMinutes, 2000)
+
 
 </script>

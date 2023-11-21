@@ -1,3 +1,10 @@
+.delay{
+  display: none;
+}
+
+.fadeIn{
+  animation: 2.25s ease-out 0s 1 fadeIn;
+}
 .slideLeft{
   animation: .25s ease-out 0s 1 slideLeft;
 }
@@ -5,12 +12,21 @@
   animation: .25s ease-out 0s 1 slideRight;
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 @keyframes slideLeft {
   0% {
     opacity: 0;
     transform: translateX(-100px);
   }
   100% {
+    opacity: 1;
     transform: scale(1);
     transform: translateX(0);
   }
@@ -21,6 +37,7 @@
     transform: translateX(100px);
   }
   100% {
+    opacity: 1;
     transform: scale(1);
     transform: translateX(0);
   }
