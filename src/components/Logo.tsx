@@ -26,7 +26,7 @@ export default function Logo() {
   // use below when deployed
   // const logo = "/logo.png"
   return ( 
-<>
+<div className="slideLeft">
   {
   isHomePage ? (
     <img className="h-[38px]" src={logo} alt="Logo" />
@@ -41,7 +41,7 @@ export default function Logo() {
       }
     </a>
   )}
-</>
+</div>
  
   )
 }

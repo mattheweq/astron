@@ -38,7 +38,7 @@ export default function Nav(props: Props) {
 return (    
 <nav>
 
-    <div className={`${!matches ? 'text-white' : txtcol}`}>
+    <div className={`${!matches ? 'text-white' : txtcol} slideRight`}>
     {matches && <div>
         <NavItems toggled={toggled} itemClasses="relative mt-2 flex gap-2 justify-center" />
       </div>
