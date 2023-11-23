@@ -3,7 +3,7 @@ author: sandy
 categories: ["fashion"]
 date: 15/11/26
 featured: false
-image: ./images/placeholder.png
+image: ./images/mvm-stamp.jpg
 title: "Today is a great day"
 ---
 

@@ -35,13 +35,14 @@ const {Content} = await post.render()
     <!-- POST TITLE -->
     <h2 class="text-slate-100 text-4xl font-bold mb-1">{post.data.title}</h2>
     
-    <Image 
+    <!-- { !post.data.image ? null : <Image 
       src={post.data.image} 
       width={1024} 
       height={1024 / 1.5} 
       alt={post.data.title}
       class="rounded shadow-xl my-4 aspect-thumbnail object-cover" 
-    />
+      />
+    } -->
 
     <!-- MAIN POST CONTENT -->
     <div class="mt-0 prose prose-lg dark:prose-invert overflow-visible mb-20 text-slate-100 prose-p:my-0 prose-p:mb-4 prose-h1:m-0 prose-h1:text-white prose-h2:m-0 prose-h2:text-white">

@@ -3,11 +3,13 @@ author: sandy
 categories: ["technology"]
 date: 15/11/26
 featured: false
-image: ./images/placeholder.png
-title: "Daytime or nighttime"
+image: ./images/mvm-stamp.jpg
+title: "A Government In Heaven"
 ---
 
-Sometimes its light and other times its dark
+![A Government In Heaven](https://mvmalbumartwork.olk1.com/rebranded-mixed-sizes/a-government-in-heaven.webp)
+
+Released in 2018
 
 # Introduction
 
