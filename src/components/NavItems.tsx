@@ -30,14 +30,14 @@ function NavItems(props: Props) {
     <ul className={itemClasses}>
       
       <li>
-        {isHomePage ? (<span className="text-slate-500">Home</span>) : (<a href="/astron/">Home</a>)}
+        {isHomePage ? (<span className="text-slate-500">Home</span>) : ( <a href="/astron/">Home</a>)}
       </li>
 
       {!toggled && (
         <li>|</li>
       )}
       <li>
-        {isBlogPage ? (<span className="text-slate-500">Blog</span>) : (<a href="/astron/blog/">Blog</a>)}
+        {isBlogPage ? (<span className="text-slate-500">Blog</span>) : ( <a href="/astron/blog/">Blog</a>)}
       </li>
       {!toggled && (
         <li>|</li>

@@ -1,6 +1,5 @@
 import {motion} from 'framer-motion'
 import { useEffect, useState } from 'react';
-import { useMediaQuery } from '../utils/useMediaQuery';
 import NavItems from './NavItems'
 
 interface Props {
@@ -11,7 +10,24 @@ export default function Nav(props: Props) {
   const {txtcol} = props;
   const [toggled, setToggled] = useState(false)
   const [isChartsPage, setisChartsPage] = useState(false)
-  const matches = useMediaQuery("(min-width: 1280px)")
+  const [matches, setMatches] = useState(false);
+
+  useEffect(() => {
+    // Use the window.matchMedia API to get the initial matches value
+    const initialMatches = window.matchMedia("(min-width: 1280px)").matches
+
+    // Update the state with the initial value
+    setMatches(initialMatches)
+
+    // Add a listener to update the state when the window is resized
+    const mediaQuery = window.matchMedia("(min-width: 1280px)")
+    const handleResize = () => setMatches(mediaQuery.matches)
+
+    mediaQuery.addEventListener('change',handleResize);
+
+    // Clean up the listener on component unmount
+    return () => mediaQuery.removeEventListener('change', handleResize)
+  }, [])
 
   useEffect(() => {
     const { pathname } = window.location
