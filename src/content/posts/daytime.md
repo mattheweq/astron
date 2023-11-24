@@ -3,12 +3,9 @@ author: sandy
 categories: ["technology"]
 date: 15/11/26
 featured: false
-image: ./images/mvm-stamp.jpg
+url: https://mvmalbumartwork.olk1.com/rebranded-mixed-sizes/a-government-in-heaven.webp
 title: "A Government In Heaven"
 ---
-
-![A Government In Heaven](https://mvmalbumartwork.olk1.com/rebranded-mixed-sizes/a-government-in-heaven.webp)
-
 Released in 2018
 
 # Introduction

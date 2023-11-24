@@ -3,8 +3,8 @@ author: sandy
 categories: ["fashion"]
 date: 15/11/26
 featured: false
-image: ./images/mvm-stamp.jpg
-title: "Today is a great day"
+url: https://mvmalbumartwork.olk1.com/rebranded-mixed-sizes/sister.webp
+title: "Sister"
 ---
 
 Looking good and feeling great

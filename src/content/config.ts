@@ -4,8 +4,13 @@ const postsCollections = defineCollection({
   schema: ({image}) => z.object({
     author: z.string(),
     date: z.string(),
+    title: z.string(),
+    url: z.string().url().optional(),
+    categories: z.string().array().optional(),
+    // add to frontmatter + post/slug astro templates when required
     image: image().optional(),
-    title: z.string()
+    cover: image().optional(),
+    coverAlt: z.string().optional()
   })
 })
 
