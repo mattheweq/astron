@@ -1,15 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import Bar from "../components/charts/Bar.astro"
+import Line from "../components/charts/Line.astro"
+import Pie from "../components/charts/Pie.astro"
 
 ---
 <Layout title="Charts | Astron" bgcol="bg-[#F8E9DD]" txtcol="text-black">
 
 <div class="container mx-auto">
-    <canvas id="chart"></canvas>
+    <canvas id="bar"></canvas>
+    <canvas id="line"></canvas>
+    <canvas id="pie"></canvas>
 </div>
 
 <Bar/>
+<Line/>
+<Pie/>
 
 </Layout>
 
