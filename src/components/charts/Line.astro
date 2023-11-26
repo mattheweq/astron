@@ -1,25 +1,53 @@
 <script>
+interface JSONItem{
+trackName: string;
+albumName: string;
+albumDuration: number;
+}
+const res = await fetch("https://matthewviamusic.com/api/tracks")
+const json: JSONItem[] = await res.json()
+
+const tracks: string[] = json.map((x:JSONItem) => x.trackName)
+const albums: string[] = json.map((x:JSONItem) => x.albumName)
+const albumDuration: number[] = json.map((x:JSONItem) => x.albumDuration)
+
+
+// TRACKS
+const totalTracks = tracks.length
+ 
+// ALBUMS
+const totalAlbumsInDiscography =  Array.from(new Set(albums))
+
+// TIME
+const totalAlbumMinutes =  Array.from(new Set(albumDuration))
+const backgroundColors = totalAlbumMinutes.map(x => (x > 60 ? '#76B5BC' : '#FF4E2B'));
+
   const ctx = document.getElementById('line');
 
   new Chart(ctx, {
     type: 'line',
     data: {
-      labels: ['one', 'two', 'three', 'four', 'five', 'six'],
+      labels: totalAlbumMinutes.slice(0,10),
       datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
-        borderWidth: 1,
+        label: 'Albums Under 1 Hour',
+        data: totalAlbumMinutes,
+        borderWidth: 3,
         borderColor: '#F7f7f7',
-        backgroundColor: ['#FF4E2B','#76B5BC', '#FF4E2B','#FF4E2B','#FF4E2B','#FF4E2B'],
+        borderCapStyle: "square",
+        pointRadius: 5,
+        backgroundColor: backgroundColors,
+        tension: 0.1,
+        stepped: true,
       }]
     },
     options: {
       scales: {
-        y: {
-          beginAtZero: true
+            y: {
+                suggestedMin: 20,
+                suggestedMax: 65
+            }
         }
-      }
     }
-  });
+  })
 </script>
 

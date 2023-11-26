@@ -1,25 +1,49 @@
 <script>
+interface JSONItem{
+trackName: string;
+albumName: string;
+albumDuration: number;
+}
+const res = await fetch("https://matthewviamusic.com/api/tracks")
+const json: JSONItem[] = await res.json()
+
+const tracks: string[] = json.map((x:JSONItem) => x.trackName)
+const albums: string[] = json.map((x:JSONItem) => x.albumName)
+const albumDuration: number[] = json.map((x:JSONItem) => x.albumDuration)
+
+
+// TRACKS
+const totalTracks = tracks.length
+ 
+// ALBUMS
+const totalAlbumsInDiscography =  Array.from(new Set(albums))
+
+// TIME
+const totalAlbumMinutes =  Array.from(new Set(albumDuration))
+let under45 = totalAlbumMinutes.filter((x) => x < 45 ? x : null)
+const backgroundColors = under45.map(x => (x < 30 ? 'green' : '#FF4E2B'));
+
   const ctx = document.getElementById('bar');
 
   new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ['one', 'two', 'three', 'four', 'five', 'six'],
+      labels: under45,
       datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
-        borderWidth: 1,
-        borderColor: '#F7f7f7',
-        backgroundColor: ['#FF4E2B','#76B5BC', '#FF4E2B','#FF4E2B','#FF4E2B','#FF4E2B'],
+        label: 'Albums Under 30 Mins',
+        data: under45,
+        borderWidth: 3,
+        borderColor: '#F8E9DD',
+        backgroundColor: backgroundColors,
       }]
     },
     options: {
       scales: {
         y: {
           beginAtZero: true
-        }
-      }
+        }    
+      },
     }
-  });
+  })
 </script>
 

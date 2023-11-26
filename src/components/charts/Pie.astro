@@ -1,25 +1,46 @@
 <script>
+interface JSONItem{
+trackName: string;
+albumName: string;
+albumDuration: number;
+}
+const res = await fetch("https://matthewviamusic.com/api/tracks")
+const json: JSONItem[] = await res.json()
+
+const tracks: string[] = json.map((x:JSONItem) => x.trackName)
+const albums: string[] = json.map((x:JSONItem) => x.albumName)
+const albumDuration: number[] = json.map((x:JSONItem) => x.albumDuration)
+
+
+// const totalTracks = tracks.length
+// const totalAlbumsInDiscography =  Array.from(new Set(albums))
+
+let totalAlbumMinutes =  Array.from(new Set(albumDuration))
+let over52 = totalAlbumMinutes.filter((x) => (x > 52 && x < 65) ? x : null)
+const backgroundColors = over52.map(x => (x > 60 ? '#76B5BC' : '#FF4E2B'));
+
   const ctx = document.getElementById('pie');
 
   new Chart(ctx, {
-    type: 'pie',
+    type: 'pie',  
     data: {
-      labels: ['one', 'two', 'three', 'four', 'five', 'six'],
+      labels: over52,
       datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
+        label: 'Albums between 52 Mins and 1 hour',
+        data: over52,
         borderWidth: 1,
         borderColor: '#F7f7f7',
-        backgroundColor: ['#FF4E2B','#76B5BC', '#FF4E2B','#FF4E2B','#FF4E2B','#FF4E2B'],
+        backgroundColor: backgroundColors,
       }]
     },
     options: {
-      scales: {
-        y: {
-          beginAtZero: true
+    plugins: {
+        datalabels: {
+          color: 'white',
         }
       }
-    }
-  });
+    },
+    plugins: [ChartDataLabels],
+  })
 </script>
 
