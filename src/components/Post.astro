@@ -9,7 +9,7 @@ type Props = {
 const {post} = Astro.props
 ---
 
-<article class="text-zinc-100 w-full">
+<article class="flex justify-center">
 
 <a href={`/astron/posts/${post.slug}`}>
 
@@ -30,7 +30,7 @@ const {post} = Astro.props
   )
   }
 
-    <h2 class="text-2xl mb-2 text-center">{post.data.title}</h2>
+    <h2 class="text-2xl mb-2 text-zinc-100 text-center">{post.data.title}</h2>
 </a>
 
 <!-- <p class="text-xl line-clamp-2">
