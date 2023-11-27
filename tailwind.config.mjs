@@ -9,7 +9,13 @@ export default {
         blak: "#202123",
         tabs: "#84edb2",
         tabs2: "#b353fc",
-        disc: "#f64056"
+        disc: "#f64056",
+        chartBg: "#F8E9DD",
+        orangi: "#FF4E2B",
+        blueish: "#76B5BC",
+        lawnGreen: "#007300",
+        lightGreen: "#1eb361"
+
       },
       gridTemplateColumns: {
         "lemon": "repeat(auto-fit, minmax(400px, 1fr))"
