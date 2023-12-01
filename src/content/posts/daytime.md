@@ -13,4 +13,5 @@ Released in 2018
 This is the duality of the day its really awesome dont you agree?
 
 # Conclusion
+
 Balance and contrast in all things can make for a wonderful life
