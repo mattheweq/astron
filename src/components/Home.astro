@@ -7,7 +7,11 @@ import Layout from '../layouts/Layout.astro'
 
     <!-- <section class="px-0 my-3 grid gap-1 sm:grid-cols-2 lg:grid-cols-lemon"> -->
     <section class="container mx-auto px-4">
-      <div class="px-0 md:mt-72 sm:my-8 flex 2xl:items-center justify-center">
+      <div class="flex justify-center">
+        <img class="mt-4 md:mt-24" src="/astron/mvm-stamp.jpg" alt="Matthew via Music">
+      </div>
+
+      <div class="px-0 mt-4 md:mt-48 sm:my-8 flex 2xl:items-center justify-center">
 
         <div class="sm:my-8 flex flex-col md:grid grid-cols-3 gap-6">
           
@@ -53,7 +57,7 @@ interface JSONItem{
   albumName: string;
   albumDuration: number;
 }
-const res = await fetch("https://matthewviamusic.com/api/tracks")
+const res = await fetch("https://mvmapi.olk1.com/tracks")
 const json: JSONItem[] = await res.json()
 
 const tracks: string[] = json.map((x:JSONItem) => x.trackName)

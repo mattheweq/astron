@@ -4,11 +4,11 @@ trackName: string;
 albumName: string;
 albumDuration: number;
 }
-const res = await fetch("https://matthewviamusic.com/api/tracks")
+const res = await fetch("https://mvmapi.olk1.com/tracks")
 const json: JSONItem[] = await res.json()
 
-const tracks: string[] = json.map((x:JSONItem) => x.trackName)
-const albums: string[] = json.map((x:JSONItem) => x.albumName)
+// const tracks: string[] = json.map((x:JSONItem) => x.trackName)
+// const albums: string[] = json.map((x:JSONItem) => x.albumName)
 const albumDuration: number[] = json.map((x:JSONItem) => x.albumDuration)
 
 
@@ -40,7 +40,7 @@ const backgroundColors = over52.map(x => (x > 60 ? '#76B5BC' : '#FF4E2B'));
         }
       }
     },
-    plugins: [ChartDataLabels],
+    // plugins: [ChartDataLabels],
   })
 </script>
 

@@ -1,3 +1,22 @@
+#grid {
+	display: block;
+  position: relative;
+  width: 250%;
+  height: 200px;
+  padding-right: 1rem;
+}
+@media screen and (min-width: 480px){
+  #grid{
+    height: 400px;
+  }
+}
+@media screen and (min-width: 1150px){
+ #grid {
+  width: auto;
+  height: 400px;
+} 
+}
+
 .delay{
   display: none;
 }

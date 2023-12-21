@@ -4,33 +4,33 @@ trackName: string;
 albumName: string;
 albumDuration: number;
 }
-const res = await fetch("https://matthewviamusic.com/api/tracks")
+const res = await fetch("https://mvmapi.olk1.com/tracks")
 const json: JSONItem[] = await res.json()
 
-const tracks: string[] = json.map((x:JSONItem) => x.trackName)
-const albums: string[] = json.map((x:JSONItem) => x.albumName)
+// const tracks: string[] = json.map((x:JSONItem) => x.trackName)
+// const albums: string[] = json.map((x:JSONItem) => x.albumName)
 const albumDuration: number[] = json.map((x:JSONItem) => x.albumDuration)
 
-
 // TRACKS
-const totalTracks = tracks.length
+// const totalTracks = tracks.length
  
 // ALBUMS
-const totalAlbumsInDiscography =  Array.from(new Set(albums))
+// const totalAlbumsInDiscography =  Array.from(new Set(albums))
+// console.log(totalAlbumsInDiscography.length)
 
 // TIME
 const totalAlbumMinutes =  Array.from(new Set(albumDuration))
-let under45 = totalAlbumMinutes.filter((x) => x < 45 ? x : null)
-const backgroundColors = under45.map(x => (x < 30 ? 'green' : '#FF4E2B'));
+let under45 = totalAlbumMinutes.filter((x) => x < 75 ? x : null)
+const backgroundColors = under45.map(x => (x > 45 ? 'green' : '#FF4E2B'));
 
-  const ctx = document.getElementById('bar');
-
-  new Chart(ctx, {
+  const ctx = document.getElementById('bar')
+  let BarChart = new Chart(ctx, {
+  
     type: 'bar',
     data: {
       labels: under45,
       datasets: [{
-        label: 'Albums Under 30 Mins',
+        label: 'Albums Over 45 Mins',
         data: under45,
         borderWidth: 3,
         borderColor: '#F8E9DD',
@@ -38,12 +38,25 @@ const backgroundColors = under45.map(x => (x < 30 ? 'green' : '#FF4E2B'));
       }]
     },
     options: {
+      responsive: true,
+      maintainAspectRatio: false, // size with CSS
       scales: {
         y: {
-          beginAtZero: true
+          beginAtZero: true,
         }    
       },
+      plugins: {
+        datalabels: {
+          color: 'transparent',
+        }
+      }
     }
   })
+
+// window.outerWidth < 399 ? Chart.defaults.font.size = 8 : window.outerWidth < 1080 ? Chart.defaults.font.size = 10 : Chart.defaults.font.size = 12
+window.addEventListener('resize', function () {
+    BarChart.resize()
+});
+
 </script>
 

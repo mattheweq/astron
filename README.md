@@ -9,15 +9,6 @@
 
 
 
-
-```
-astro workflow configured - use github pages
-```
-
-
-
-
-
 ```
 npm create astro@latest projectName
 npx astro add tailwind
@@ -26,9 +17,9 @@ npx astro add mdx
 npx astro add react
 npm i framer-motion
 
-"dev": "astro dev --port 5000",
-
-npm run build
+"dev": "astro dev --port 5000"
 ```
 
-
+```
+astro workflow configured - use github pages
+```
