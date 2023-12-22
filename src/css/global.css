@@ -1,8 +1,6 @@
 #grid {
-	display: block;
-  position: relative;
   width: 250%;
-  height: 200px;
+  height: 300px;
   padding-right: 1rem;
 }
 @media screen and (min-width: 480px){
@@ -14,7 +12,7 @@
  #grid {
   width: auto;
   height: 400px;
-} 
+  } 
 }
 
 .delay{

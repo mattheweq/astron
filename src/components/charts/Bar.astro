@@ -8,14 +8,15 @@ const res = await fetch("https://mvmapi.olk1.com/tracks")
 const json: JSONItem[] = await res.json()
 
 // const tracks: string[] = json.map((x:JSONItem) => x.trackName)
-// const albums: string[] = json.map((x:JSONItem) => x.albumName)
+const albums: string[] = json.map((x:JSONItem) => x.albumName)
 const albumDuration: number[] = json.map((x:JSONItem) => x.albumDuration)
 
 // TRACKS
 // const totalTracks = tracks.length
  
 // ALBUMS
-// const totalAlbumsInDiscography =  Array.from(new Set(albums))
+const totalAlbumsInDiscography =  Array.from(new Set(albums))
+console.log(totalAlbumsInDiscography)
 // console.log(totalAlbumsInDiscography.length)
 
 // TIME
@@ -28,11 +29,13 @@ const backgroundColors = under45.map(x => (x > 45 ? 'green' : '#FF4E2B'));
   
     type: 'bar',
     data: {
-      labels: under45,
+      labels: totalAlbumsInDiscography,
       datasets: [{
-        label: 'Albums Over 45 Mins',
         data: under45,
-        borderWidth: 3,
+        label: '',
+        // Empty as legend display:false (below)
+        borderWidth: 0,
+        // ^^^ Affects bar thickness
         borderColor: '#F8E9DD',
         backgroundColor: backgroundColors,
       }]
@@ -40,16 +43,24 @@ const backgroundColors = under45.map(x => (x > 45 ? 'green' : '#FF4E2B'));
     options: {
       responsive: true,
       maintainAspectRatio: false, // size with CSS
+      plugins: {
+        legend: {
+            display: false
+        },
+      },
       scales: {
         y: {
           beginAtZero: true,
-        }    
-      },
-      plugins: {
-        datalabels: {
-          color: 'transparent',
+        },
+        x: {
+          ticks: {
+            crossAlign: "center",
+            maxRotation: 90,
+            minRotation: 90,
+            autoSkip: false
+          }
         }
-      }
+      },
     }
   })
 

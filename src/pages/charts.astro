@@ -8,19 +8,24 @@ import Pie from "../components/charts/Pie.astro"
 
 <Layout title="Charts | Astron" bgcol="bg-chartBg" txtcol="text-black">
 
-<div class="container mx-auto mb-20">
+<div class="container mx-auto mt-2 mb-20">
 
+<!--  -->
 <div class="overflow-x-auto xl:overflow-x-hidden">
-  <div id="grid">
-        <canvas id="bar"></canvas>
-    </div>
-</div>
+  <p class="text-center text-sm"><span class="bg-[#FF4E2B] h-2 w-8 inline-block"></span> Albums Under 45 Minutes</p>
 
-      <canvas id="line"></canvas>
+  <div id="grid">
+    <canvas id="bar"></canvas>
+  </div>
+</div>
+<!--  -->
+
+
+    <canvas id="line"></canvas>
 
     <canvas id="pie"></canvas>
-  </div>
 
+</div><!-- \container -->
 
 
 <Bar/>

@@ -22,7 +22,7 @@ export default function Logo() {
     }
   }, [])
 
-  const logo = "/astron/logo.png"
+  const logo = "/astron/mvm-stamp.jpg"
   // use below when deployed
   // const logo = "/logo.png"
   return ( 
