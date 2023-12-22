@@ -24,12 +24,12 @@ export default function Logo() {
 
   const logo = "/astron/mvm-stamp.jpg"
   // use below when deployed
-  // const logo = "/logo.png"
+  // const logo = "/mvm-stamp.jpg"
   return ( 
 <div className="slideLeft">
   {
   isHomePage ? (
-    <img className="h-[38px]" src={logo} alt="Logo" />
+    <img className="h-[0px]" src={logo} alt="Logo" />
   ) : (
     <a href={homeLinkHref}>
       {

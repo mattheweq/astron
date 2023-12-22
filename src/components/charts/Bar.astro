@@ -16,13 +16,15 @@ const albumDuration: number[] = json.map((x:JSONItem) => x.albumDuration)
  
 // ALBUMS
 const totalAlbumsInDiscography =  Array.from(new Set(albums))
-console.log(totalAlbumsInDiscography)
 // console.log(totalAlbumsInDiscography.length)
 
 // TIME
-const totalAlbumMinutes =  Array.from(new Set(albumDuration))
-let under45 = totalAlbumMinutes.filter((x) => x < 75 ? x : null)
-const backgroundColors = under45.map(x => (x > 45 ? 'green' : '#FF4E2B'));
+const totalAlbumMinutes: number[] =  Array.from(new Set(albumDuration))
+
+let album: (number | string)[] = totalAlbumMinutes.map(x => x.toFixed(2))
+// console.table(album)
+
+const backgroundColors = totalAlbumMinutes.map(x => (x > 45 ? 'green' : '#FF4E2B'));
 
   const ctx = document.getElementById('bar')
   let BarChart = new Chart(ctx, {
@@ -31,7 +33,7 @@ const backgroundColors = under45.map(x => (x > 45 ? 'green' : '#FF4E2B'));
     data: {
       labels: totalAlbumsInDiscography,
       datasets: [{
-        data: under45,
+        data: album,
         label: '',
         // Empty as legend display:false (below)
         borderWidth: 0,
@@ -47,6 +49,19 @@ const backgroundColors = under45.map(x => (x > 45 ? 'green' : '#FF4E2B'));
         legend: {
             display: false
         },
+        tooltip: {
+          callbacks: {
+              label: function(context) {
+                  let label = context.dataset.label || ''
+
+                  if (context.parsed.y !== null) {
+                    label += context.parsed.y.toFixed(2).split(".").join(":") + " (mins : secs)"
+                  }
+                  return label
+              }
+          }
+        },
+        
       },
       scales: {
         y: {
