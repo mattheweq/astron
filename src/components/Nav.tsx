@@ -68,7 +68,7 @@ return (
       </a>
     )}
     
-    {/* BURGER MENU */}
+    {/* BURGER MENU/OVERLAY */}
     {toggled && !matches && (
       <motion.div 
         animate={{ opacity: 1, x: 0 }}
