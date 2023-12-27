@@ -1,15 +1,20 @@
-#grid {
+#bargrid {
   width: 250%;
   height: 300px;
   padding-right: 1rem;
 }
+#linegrid{
+  width: 100%;
+  height: 300px;
+  padding-right: 1rem;
+}
 @media screen and (min-width: 480px){
-  #grid{
+  #bargrid, #linegrid{
     height: 400px;
   }
 }
 @media screen and (min-width: 1150px){
- #grid {
+ #bargrid, #linegrid {
   width: auto;
   height: 400px;
   } 

@@ -24,7 +24,7 @@ const totalAlbumMinutes: number[] =  Array.from(new Set(albumDuration))
 let album: (number | string)[] = totalAlbumMinutes.map(x => x.toFixed(2))
 // console.table(album)
 
-const backgroundColors = totalAlbumMinutes.map(x => (x > 45 ? 'green' : '#FF4E2B'));
+const backgroundColors = totalAlbumMinutes.map(x => (x > 45 ? 'green' : '#FF4E2B'))
 
   const ctx = document.getElementById('bar')
   let BarChart = new Chart(ctx, {

@@ -6,7 +6,7 @@ import Pie from "../components/charts/Pie.astro"
 
 ---
 
-<Layout title="Charts | Astron" bgcol="bg-chartBg" txtcol="text-black">
+<Layout title="Charts | Matthew via Music" bgcol="bg-chartBg" txtcol="text-black">
 
 <div class="container mx-auto mt-2 mb-20">
 
@@ -14,15 +14,22 @@ import Pie from "../components/charts/Pie.astro"
 <div class="overflow-x-auto xl:overflow-x-hidden">
   <p class="text-center text-sm"><span class="bg-[#FF4E2B] h-2 w-8 inline-block"></span> Albums Under 45 Minutes</p>
 
-  <div id="grid">
+  <div id="bargrid">
     <canvas id="bar"></canvas>
   </div>
 </div>
 <!--  -->
 
+<div class="overflow-x-auto xl:overflow-x-hidden">
+  <p class="text-center text-sm"><span class="bg-[#FF4E2B] h-2 w-8 inline-block"></span> Tracks Over 100 Streams</p>
 
+  <div id="linegrid">
     <canvas id="line"></canvas>
+  </div>
+</div>
 
+
+<!--  -->
     <canvas id="pie"></canvas>
 
 </div><!-- \container -->

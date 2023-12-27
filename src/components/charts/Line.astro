@@ -1,36 +1,53 @@
 <script>
 interface JSONItem{
-trackName: string;
-albumName: string;
-albumDuration: number;
+  trackName: string;
+  albumName: string;
+  albumDuration: number;
+  streams: number;
+  listeners: number;
 }
 const res = await fetch("https://mvmapi.olk1.com/tracks")
 const json: JSONItem[] = await res.json()
 
-// const tracks: string[] = json.map((x:JSONItem) => x.trackName)
 // const albums: string[] = json.map((x:JSONItem) => x.albumName)
-const albumDuration: number[] = json.map((x:JSONItem) => x.albumDuration)
+// const albumDuration: number[] = json.map((x:JSONItem) => x.albumDuration)
+// const tracks: string[] = json.map((x:JSONItem) => x.trackName)
 
+const tracksAndStreams = json.map((x: JSONItem) => {
+  return {
+    trackName: x.trackName,
+    streams: x.streams
+  }
+})
 
 // TRACKS
 // const totalTracks = tracks.length
- 
+
 // ALBUMS
 // const totalAlbumsInDiscography =  Array.from(new Set(albums))
 
+// STREAMS
+const streamsOverX = tracksAndStreams.filter((track) => track.streams > 50)
+// console.table(streamsOverX)
+
+const backgroundColors = streamsOverX.map(x => (x.streams < 100 ? '#76B5BC' : '#FF4E2B'))
+
+// console.log(streamsOver50.length)
+// console.log(streams.filter(x => x > 40 ? x : null))
+
 // TIME
-const totalAlbumMinutes =  Array.from(new Set(albumDuration))
-const backgroundColors = totalAlbumMinutes.map(x => (x > 60 ? '#76B5BC' : '#FF4E2B'));
+// const totalAlbumMinutes =  Array.from(new Set(albumDuration))
+// const backgroundColors = totalAlbumMinutes.map(x => (x > 60 ? '#76B5BC' : '#FF4E2B'))
+
 
   const ctx = document.getElementById('line');
 
-  new Chart(ctx, {
+  let LineChart = new Chart(ctx, {
     type: 'line',
     data: {
-      labels: totalAlbumMinutes.slice(0,10),
+      labels: streamsOverX.map(x => x.trackName),
       datasets: [{
-        label: 'Albums Under 1 Hour',
-        data: totalAlbumMinutes,
+        data: streamsOverX.map(x => x.streams),
         borderWidth: 3,
         borderColor: '#F7f7f7',
         borderCapStyle: "square",
@@ -41,13 +58,36 @@ const backgroundColors = totalAlbumMinutes.map(x => (x > 60 ? '#76B5BC' : '#FF4E
       }]
     },
     options: {
+      responsive: true,
+      maintainAspectRatio: false, // size with CSS
+      plugins: {
+        legend: {
+            display: false
+        },
+      },
       scales: {
-            y: {
-                suggestedMin: 20,
-                suggestedMax: 65
-            }
+          y: {
+              suggestedMin: 0,
+              suggestedMax: 500,
+              // beginAtZero: true,
+              ticks:{
+                stepSize: 30,
+              }
+          },
+          x: {
+              ticks: {
+              crossAlign: "center",
+              maxRotation: 90,
+              minRotation: 90,
+              autoSkip: false
         }
-    }
+      }
+      }
+    },
   })
+  window.addEventListener('resize', function () {
+    LineChart.resize()
+});
+
 </script>
 
