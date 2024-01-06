@@ -1,6 +1,6 @@
 ## Astron - An Astro Starter Project
 
-<a href="https://mattheweq.com/astron/" target="_blank">VISIT LIVE SITE</a>
+[VISIT LIVE SITE](https://mattheweq.com/astron/)
 
 [API](https://mvmapi.olk1.com/tracks)
 
