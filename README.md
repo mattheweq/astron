@@ -22,6 +22,7 @@ npm i framer-motion
 "dev": "astro dev --port 5000"
 ```
 
+`CI/CD deployment from git push`
 ```
-astro workflow configured - use github pages
+astro workflow configured - using github pages
 ```

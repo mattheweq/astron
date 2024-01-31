@@ -1,43 +1,9 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import Bar from "../components/charts/Bar.astro"
-import Line from "../components/charts/Line.astro"
-import Pie from "../components/charts/Pie.astro"
+
+import Home from "../components/Home.astro"
 
 ---
 
-<Layout title="Charts | Matthew via Music" bgcol="bg-chartBg" txtcol="text-black">
 
-<div class="container mx-auto mt-2 mb-20">
-
-<!--  -->
-<div class="overflow-x-auto xl:overflow-x-hidden">
-  <p class="text-center text-sm"><span class="bg-[#FF4E2B] h-2 w-8 inline-block"></span> Albums Under 45 Minutes</p>
-
-  <div id="bargrid">
-    <canvas id="bar"></canvas>
-  </div>
-</div>
-<!--  -->
-
-<div class="overflow-x-auto xl:overflow-x-hidden">
-  <p class="text-center text-sm"><span class="bg-[#FF4E2B] h-2 w-8 inline-block"></span> Tracks Over 100 Streams</p>
-
-  <div id="linegrid">
-    <canvas id="line"></canvas>
-  </div>
-</div>
-
-
-<!--  -->
-    <canvas id="pie"></canvas>
-
-</div><!-- \container -->
-
-
-<Bar/>
-<Line/>
-<Pie/>
-
-</Layout>
+<Home />
 

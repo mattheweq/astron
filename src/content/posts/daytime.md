@@ -6,12 +6,12 @@ featured: false
 url: https://mvmalbumartwork.olk1.com/rebranded-mixed-sizes/a-government-in-heaven.webp
 title: "A Government In Heaven"
 ---
-Released in 2018
+Debut album 2018
 
 # Introduction
 
-This is the duality of the day its really awesome dont you agree?
+An oustanding first effort spanning multiple genres and themes. Funky, jazzy, left field, with highly creative vocals and instrumentation.
 
 # Conclusion
 
-Balance and contrast in all things can make for a wonderful life
+Guaranteed multiple listens required, which reveal hidden depths and subtle characteristics.

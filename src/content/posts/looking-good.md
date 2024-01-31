@@ -7,11 +7,12 @@ url: https://mvmalbumartwork.olk1.com/rebranded-mixed-sizes/sister.webp
 title: "Sister"
 ---
 
-Looking good and feeling great
+From the moment the title track spools into existence, your journey begins.
 
 # Introduction
 
-Sometimes I catch a glimpse of myself in shop windows and I am amazed.
+Cleverly categorised as Electro Nouveau, the album blends the familar sounds of computers with organic midi voicing and haunting textures. 
 
 # Conclusion
-Keep a good eye on it.
+
+Guaranteed to have your bass bins rumblin' with progressive lines, overlaid with dreamy spacey soundscapes. 
