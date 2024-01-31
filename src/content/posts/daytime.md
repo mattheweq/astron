@@ -14,4 +14,4 @@ An oustanding first effort spanning multiple genres and themes. Funky, jazzy, le
 
 # Conclusion
 
-Guaranteed multiple listens required, which reveal hidden depths and subtle characteristics.
+Multiple listens reveal hidden depths and subtle characteristics.
